@@ -51,7 +51,8 @@ public class Creator extends Selector {
         finalMeme = combineImages(memeTemplateBitmap, topBitmap, bottomBitmap);
         MediaStore.Images.Media.insertImage(getContentResolver(), finalMeme, "meme", "dank");
         Toast.makeText(getApplicationContext(), "Meme saved", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(this, StartPage.class);
+        Intent intent = new Intent(getApplicationContext(), StartPage.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
         finish();
     }

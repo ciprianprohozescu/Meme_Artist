@@ -16,6 +16,5 @@ public class StartPage extends AppCompatActivity {
     public void gotoSelector(View view) {
         Intent goSelector = new Intent(this, Selector.class);
         startActivity(goSelector);
-        finish();
     }
 }
