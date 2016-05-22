@@ -10,7 +10,11 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.provider.MediaStore;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -36,11 +40,42 @@ public class Creator extends Selector {
         topInput = (EditText) findViewById(R.id.topInput);
         bottomInput = (EditText) findViewById(R.id.bottomInput);
         memeTemplate.setImageBitmap(memeBitmap);
-    }
 
-    public void createMeme(View view) {
-        topText.setText(topInput.getText().toString());
-        bottomText.setText(bottomInput.getText().toString());
+        topInput.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count) {
+                topText.setText(topInput.getText().toString());
+            }
+        });
+
+        bottomInput.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count) {
+                bottomText.setText(bottomInput.getText().toString());
+            }
+        });
     }
 
     public void saveMeme(View view) {

@@ -27,20 +27,11 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create Meme"
-        android:id="@+id/button3"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:onClick="createMeme" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Save Meme"
+        android:text="Done!"
         android:id="@+id/button4"
-        android:layout_alignTop="@+id/button3"
-        android:layout_alignParentEnd="true"
-        android:onClick="saveMeme" />
+        android:onClick="saveMeme"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -49,10 +40,10 @@
         android:keepScreenOn="false"
         android:scaleType="centerCrop"
         android:layout_below="@+id/bottomInput"
-        android:layout_above="@+id/button3"
         android:layout_marginTop="25dp"
         android:layout_marginBottom="25dp"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/button4" />
 
     <TextView
         android:layout_width="wrap_content"
