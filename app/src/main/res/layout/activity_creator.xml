@@ -10,19 +10,21 @@
     tools:context="com.cyworks.memeartist.Creator">
 
     <EditText
-        android:layout_width="300dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/topInput"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentStart="true"
+        android:width="250dp" />
 
     <EditText
-        android:layout_width="300dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/bottomInput"
+        android:layout_marginTop="30dp"
         android:layout_below="@+id/topInput"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp" />
+        android:layout_alignParentStart="true"
+        android:width="250dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -64,5 +66,25 @@
         android:layout_centerHorizontal="true"
         android:layout_alignBottom="@+id/memeTemplate"
         android:textColor="#ffffff" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/topSize"
+        android:width="70dp"
+        android:layout_alignTop="@+id/topInput"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/bottomSize"
+        android:width="70dp"
+        android:layout_alignTop="@+id/bottomInput"
+        android:layout_alignStart="@+id/topSize" />
 
 </RelativeLayout>

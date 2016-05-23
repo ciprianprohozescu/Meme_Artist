@@ -2,22 +2,15 @@ package com.cyworks.memeartist;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.LayerDrawable;
 import android.provider.MediaStore;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -26,8 +19,9 @@ public class Creator extends Selector {
 
     ImageView memeTemplate;
     TextView topText, bottomText;
-    EditText topInput, bottomInput;
+    EditText topInput, bottomInput, topSize, bottomSize;
     Bitmap topBitmap, bottomBitmap, finalMeme, memeTemplateBitmap;
+    float topFloat, bottomFloat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +34,8 @@ public class Creator extends Selector {
         bottomText.setDrawingCacheEnabled(true);
         topInput = (EditText) findViewById(R.id.topInput);
         bottomInput = (EditText) findViewById(R.id.bottomInput);
+        topSize = (EditText) findViewById(R.id.topSize);
+        bottomSize = (EditText) findViewById(R.id.bottomSize);
         memeTemplate.setImageBitmap(memeBitmap);
 
         topInput.addTextChangedListener(new TextWatcher() {
@@ -75,6 +71,48 @@ public class Creator extends Selector {
             public void onTextChanged(CharSequence s, int start,
                                       int before, int count) {
                 bottomText.setText(bottomInput.getText().toString());
+            }
+        });
+
+        topSize.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count) {
+                if (!topSize.getText().toString().equals("")) {
+                    topFloat = Float.parseFloat(topSize.getText().toString());
+                    topText.setTextSize(topFloat);
+                }
+            }
+        });
+
+        bottomSize.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count) {
+                if (!bottomSize.getText().toString().equals("")) {
+                    bottomFloat = Float.parseFloat(bottomSize.getText().toString());
+                    bottomText.setTextSize(bottomFloat);
+                }
             }
         });
 
