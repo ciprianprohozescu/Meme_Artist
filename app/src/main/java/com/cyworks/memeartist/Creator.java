@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
@@ -76,6 +77,12 @@ public class Creator extends Selector {
                 bottomText.setText(bottomInput.getText().toString());
             }
         });
+
+        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/meme.ttf");
+        topText.setTypeface(custom_font);
+        bottomText.setTypeface(custom_font);
+        topText.setShadowLayer(10, 0, 0, Color.BLACK);
+        bottomText.setShadowLayer(10, 0, 0, Color.BLACK);
     }
 
     public void saveMeme(View view) {
