@@ -21,7 +21,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
             android:id="@+id/currentMemeText"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
@@ -54,7 +53,6 @@
             android:text="Open"
             android:id="@+id/memeDrawerButton"
             android:singleLine="false"
-            android:background="@drawable/round_button"
             android:onClick="openDrawer"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true" />

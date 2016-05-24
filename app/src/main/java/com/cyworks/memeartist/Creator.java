@@ -149,8 +149,8 @@ public class Creator extends Selector {
         Canvas comboImage = new Canvas(cs);
         background = Bitmap.createScaledBitmap(background, width, height, true);
         comboImage.drawBitmap(background, 0, 0, null);
-        comboImage.drawBitmap(foreground1, (width - topBitmap.getWidth()) / 2, 0, null);
-        comboImage.drawBitmap(foreground2, (width - bottomBitmap.getWidth()) / 2, height - 100, null);
+        comboImage.drawBitmap(foreground1, (width - topBitmap.getWidth()) / 2, 0 - topText.getTextSize() / 10, null);
+        comboImage.drawBitmap(foreground2, (width - bottomBitmap.getWidth()) / 2, height - 60 - bottomText.getTextSize(), null);
         return cs;
     }
 }

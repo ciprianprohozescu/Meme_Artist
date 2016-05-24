@@ -9,6 +9,5 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
         android:id="@+id/memeListText"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/round_button"/>
+        android:layout_gravity="center_horizontal" />
 </LinearLayout>
