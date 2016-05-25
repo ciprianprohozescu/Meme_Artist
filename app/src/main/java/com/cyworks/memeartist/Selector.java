@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Selector extends AppCompatActivity {
 
@@ -26,16 +27,18 @@ public class Selector extends AppCompatActivity {
     ImageView memeImage;
     private final static int SELECT_PHOTO = 12345;
     public static Bitmap memeBitmap;
+    boolean selected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selector);
+        selected = false;
 
         memeDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         memeDrawerButton = (Button) findViewById(R.id.memeDrawerButton);
 
-        String[] memes = {"Scumbag Steve", "Use an image from your gallery"};
+        String[] memes = {"Use an image from your gallery", "Scumbag Steve", "Insanity wolf", "Philosoraptor"};
         ListAdapter myAdapter = new MemeAdapter(this, memes);
         final ListView memeList = (ListView) findViewById(R.id.memeList);
         memeList.setAdapter(myAdapter);
@@ -47,14 +50,30 @@ public class Selector extends AppCompatActivity {
                         memeImage = (ImageView) findViewById(R.id.memeImage);
                         switch (position) {
                             case 0:
+                                useOwnImage();
+                                currentMemeText.setText("It's your pic, go crazy with it");
+                                selected = true;
+                                break;
+                            case 1:
                                 memeImage.setImageResource(R.drawable.scumbag_steve);
                                 memeImage.buildDrawingCache();
                                 memeBitmap = memeImage.getDrawingCache();
                                 currentMemeText.setText("When you evoke that one douchebag who ruined your day");
+                                selected = true;
                                 break;
-                            case 1:
-                                useOwnImage();
-                                currentMemeText.setText("It's your pic, go crazy with it");
+                            case 2:
+                                memeImage.setImageResource(R.drawable.insanity_wolf);
+                                memeImage.buildDrawingCache();
+                                memeBitmap = memeImage.getDrawingCache();
+                                currentMemeText.setText("You must have done something REALLY crazy...");
+                                selected = true;
+                                break;
+                            case 3:
+                                memeImage.setImageResource(R.drawable.philosoraptor);
+                                memeImage.buildDrawingCache();
+                                memeBitmap = memeImage.getDrawingCache();
+                                currentMemeText.setText("A revolutionary shower thought");
+                                selected = true;
                                 break;
                             default:
                                 break;
@@ -100,7 +119,13 @@ public class Selector extends AppCompatActivity {
     }
 
     public void gotoCreator(View view) {
-        Intent intent = new Intent(this, Creator.class);
-        startActivity(intent);
+        if (selected) {
+            Intent intent = new Intent(this, Creator.class);
+            selected = false;
+            startActivity(intent);
+        }
+        else {
+            Toast.makeText(getApplicationContext(), "You have to select an image", Toast.LENGTH_SHORT).show();
+        }
     }
 }

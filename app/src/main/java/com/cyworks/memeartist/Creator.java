@@ -124,17 +124,22 @@ public class Creator extends Selector {
     }
 
     public void saveMeme(View view) {
-        topBitmap = Bitmap.createBitmap(topText.getDrawingCache());
-        bottomBitmap = Bitmap.createBitmap(bottomText.getDrawingCache());
-        memeTemplate.setDrawingCacheEnabled(true);
-        memeTemplateBitmap = Bitmap.createBitmap(memeTemplate.getDrawingCache());
-        finalMeme = combineImages(memeTemplateBitmap, topBitmap, bottomBitmap);
-        MediaStore.Images.Media.insertImage(getContentResolver(), finalMeme, "meme", "dank");
-        Toast.makeText(getApplicationContext(), "Meme saved", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(getApplicationContext(), StartPage.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-        finish();
+        if (topText.getText().toString().equals("") || bottomText.getText().toString().equals("")) {
+            Toast.makeText(getApplicationContext(), "You should write some text there though...", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            topBitmap = Bitmap.createBitmap(topText.getDrawingCache());
+            bottomBitmap = Bitmap.createBitmap(bottomText.getDrawingCache());
+            memeTemplate.setDrawingCacheEnabled(true);
+            memeTemplateBitmap = Bitmap.createBitmap(memeTemplate.getDrawingCache());
+            finalMeme = combineImages(memeTemplateBitmap, topBitmap, bottomBitmap);
+            MediaStore.Images.Media.insertImage(getContentResolver(), finalMeme, "meme", "dank");
+            Toast.makeText(getApplicationContext(), "Meme saved", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getApplicationContext(), StartPage.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            finish();
+        }
     }
 
     public Bitmap combineImages(Bitmap background, Bitmap foreground1, Bitmap foreground2) {

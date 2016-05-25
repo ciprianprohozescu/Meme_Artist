@@ -40,12 +40,12 @@
         android:layout_height="wrap_content"
         android:id="@+id/memeTemplate"
         android:keepScreenOn="false"
-        android:scaleType="centerCrop"
         android:layout_below="@+id/bottomInput"
         android:layout_marginTop="25dp"
         android:layout_marginBottom="25dp"
         android:layout_centerHorizontal="true"
-        android:layout_above="@+id/button4" />
+        android:layout_above="@+id/button4"
+        android:scaleType="centerCrop" />
 
     <TextView
         android:layout_width="wrap_content"
