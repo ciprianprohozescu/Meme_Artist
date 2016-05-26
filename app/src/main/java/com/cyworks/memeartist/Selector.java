@@ -38,7 +38,7 @@ public class Selector extends AppCompatActivity {
         memeDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         memeDrawerButton = (Button) findViewById(R.id.memeDrawerButton);
 
-        String[] memes = {"Use an image from your gallery", "Scumbag Steve", "Insanity wolf", "Philosoraptor"};
+        String[] memes = {"Use an image from your gallery", "Scumbag Steve", "Insanity wolf", "Philosoraptor", "Good advice duck", "Bad advice duck", "Grumpy cat", "I don't always"};
         ListAdapter myAdapter = new MemeAdapter(this, memes);
         final ListView memeList = (ListView) findViewById(R.id.memeList);
         memeList.setAdapter(myAdapter);
@@ -73,6 +73,34 @@ public class Selector extends AppCompatActivity {
                                 memeImage.buildDrawingCache();
                                 memeBitmap = memeImage.getDrawingCache();
                                 currentMemeText.setText("A revolutionary shower thought");
+                                selected = true;
+                                break;
+                            case 4:
+                                memeImage.setImageResource(R.drawable.good_advice_duck);
+                                memeImage.buildDrawingCache();
+                                memeBitmap = memeImage.getDrawingCache();
+                                currentMemeText.setText("Give some live-saving advice with this duck.");
+                                selected = true;
+                                break;
+                            case 5:
+                                memeImage.setImageResource(R.drawable.bad_advice_duck);
+                                memeImage.buildDrawingCache();
+                                memeBitmap = memeImage.getDrawingCache();
+                                currentMemeText.setText("Give some horrible advice with this duck.");
+                                selected = true;
+                                break;
+                            case 6:
+                                memeImage.setImageResource(R.drawable.grumpy_cat);
+                                memeImage.buildDrawingCache();
+                                memeBitmap = memeImage.getDrawingCache();
+                                currentMemeText.setText("A hateful message to humanity.");
+                                selected = true;
+                                break;
+                            case 7:
+                                memeImage.setImageResource(R.drawable.i_dont_always);
+                                memeImage.buildDrawingCache();
+                                memeBitmap = memeImage.getDrawingCache();
+                                currentMemeText.setText("I don't always [stuff], but when I do...[other stuff]");
                                 selected = true;
                                 break;
                             default:
