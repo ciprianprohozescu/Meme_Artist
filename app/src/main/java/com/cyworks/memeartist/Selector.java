@@ -38,7 +38,7 @@ public class Selector extends AppCompatActivity {
         memeDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         memeDrawerButton = (Button) findViewById(R.id.memeDrawerButton);
 
-        String[] memes = {"Use an image from your gallery", "Scumbag Steve", "Insanity wolf", "Philosoraptor", "Good advice duck", "Bad advice duck", "Grumpy cat", "I don't always"};
+        String[] memes = {"Use an image from your gallery", "Scumbag Steve", "Insanity wolf", "Philosoraptor", "Good advice duck", "Bad advice duck", "Grumpy cat", "I don't always", "Baby wolf", "Bad guy boss", "Bad luck Brian", "Drunk baby", "Facepalm", "First world problems", "Good guy Greg", "Good dog Greg", "One does not simply", "Penguins", "The real mvp", "That would be great", "Too damn high", "Unhelpful teacher", "What if I told you"};
         ListAdapter myAdapter = new MemeAdapter(this, memes);
         final ListView memeList = (ListView) findViewById(R.id.memeList);
         memeList.setAdapter(myAdapter);
@@ -58,7 +58,7 @@ public class Selector extends AppCompatActivity {
                                 memeImage.setImageResource(R.drawable.scumbag_steve);
                                 memeImage.buildDrawingCache();
                                 memeBitmap = memeImage.getDrawingCache();
-                                currentMemeText.setText("When you evoke that one douchebag who ruined your day");
+                                currentMemeText.setText("When you evoke that one douchebag who ruined your day.");
                                 selected = true;
                                 break;
                             case 2:
@@ -100,7 +100,112 @@ public class Selector extends AppCompatActivity {
                                 memeImage.setImageResource(R.drawable.i_dont_always);
                                 memeImage.buildDrawingCache();
                                 memeBitmap = memeImage.getDrawingCache();
-                                currentMemeText.setText("I don't always [stuff], but when I do...[other stuff]");
+                                currentMemeText.setText("I don't always [stuff], but when I do...[other stuff].");
+                                selected = true;
+                                break;
+                            case 8:
+                                memeImage.setImageResource(R.drawable.baby_wolf);
+                                memeImage.buildDrawingCache();
+                                memeBitmap = memeImage.getDrawingCache();
+                                currentMemeText.setText("When you do something...not really crazy.");
+                                selected = true;
+                                break;
+                            case 9:
+                                memeImage.setImageResource(R.drawable.bad_guy_boss);
+                                memeImage.buildDrawingCache();
+                                memeBitmap = memeImage.getDrawingCache();
+                                currentMemeText.setText("You have a terrible boss.");
+                                selected = true;
+                                break;
+                            case 10:
+                                memeImage.setImageResource(R.drawable.bad_luck_brian);
+                                memeImage.buildDrawingCache();
+                                memeBitmap = memeImage.getDrawingCache();
+                                currentMemeText.setText("NEVERlucky.");
+                                selected = true;
+                                break;
+                            case 11:
+                                memeImage.setImageResource(R.drawable.drunk_baby);
+                                memeImage.buildDrawingCache();
+                                memeBitmap = memeImage.getDrawingCache();
+                                currentMemeText.setText("Tell your friends a \"drunk\" story.");
+                                selected = true;
+                                break;
+                            case 12:
+                                memeImage.setImageResource(R.drawable.facepalm);
+                                memeImage.buildDrawingCache();
+                                memeBitmap = memeImage.getDrawingCache();
+                                currentMemeText.setText("The level of stupidity is sometimes tiresome...");
+                                selected = true;
+                                break;
+                            case 13:
+                                memeImage.setImageResource(R.drawable.first_world_problems);
+                                memeImage.buildDrawingCache();
+                                memeBitmap = memeImage.getDrawingCache();
+                                currentMemeText.setText("You can't have enough of these...");
+                                selected = true;
+                                break;
+                            case 14:
+                                memeImage.setImageResource(R.drawable.good_guy_greg);
+                                memeImage.buildDrawingCache();
+                                memeBitmap = memeImage.getDrawingCache();
+                                currentMemeText.setText("Someone who was actually nice to you.");
+                                selected = true;
+                                break;
+                            case 15:
+                                memeImage.setImageResource(R.drawable.good_dog_greg);
+                                memeImage.buildDrawingCache();
+                                memeBitmap = memeImage.getDrawingCache();
+                                currentMemeText.setText("The dog version of the good guy, only nicer. And with fur.");
+                                selected = true;
+                                break;
+                            case 16:
+                                memeImage.setImageResource(R.drawable.one_does_not_simply);
+                                memeImage.buildDrawingCache();
+                                memeBitmap = memeImage.getDrawingCache();
+                                currentMemeText.setText("One does not simply start this meme without one does not simply.");
+                                selected = true;
+                                break;
+                            case 17:
+                                memeImage.setImageResource(R.drawable.penguins);
+                                memeImage.buildDrawingCache();
+                                memeBitmap = memeImage.getDrawingCache();
+                                currentMemeText.setText("Every cloud has a silver lining. Or the other way around.");
+                                selected = true;
+                                break;
+                            case 18:
+                                memeImage.setImageResource(R.drawable.real_mvp);
+                                memeImage.buildDrawingCache();
+                                memeBitmap = memeImage.getDrawingCache();
+                                currentMemeText.setText("These guys must be REALLY nice to everyone.");
+                                selected = true;
+                                break;
+                            case 19:
+                                memeImage.setImageResource(R.drawable.that_would_be_great);
+                                memeImage.buildDrawingCache();
+                                memeBitmap = memeImage.getDrawingCache();
+                                currentMemeText.setText("If I could just write better flavour text, that would be great.");
+                                selected = true;
+                                break;
+                            case 20:
+                                memeImage.setImageResource(R.drawable.too_damn_high);
+                                memeImage.buildDrawingCache();
+                                memeBitmap = memeImage.getDrawingCache();
+                                currentMemeText.setText("The amount of memes this app has is too damn high...Just kidding.");
+                                selected = true;
+                                break;
+                            case 21:
+                                memeImage.setImageResource(R.drawable.unhelpful_teacher);
+                                memeImage.buildDrawingCache();
+                                memeBitmap = memeImage.getDrawingCache();
+                                currentMemeText.setText("Did you understand what they said? No. Did they care? Also no.");
+                                selected = true;
+                                break;
+                            case 22:
+                                memeImage.setImageResource(R.drawable.what_if_i_told_you);
+                                memeImage.buildDrawingCache();
+                                memeBitmap = memeImage.getDrawingCache();
+                                currentMemeText.setText("What if I told you....well I have nothing more to tell you.");
                                 selected = true;
                                 break;
                             default:
