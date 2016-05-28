@@ -22,6 +22,7 @@ public class Creator extends Selector {
     EditText topInput, bottomInput, topSize, bottomSize;
     Bitmap topBitmap, bottomBitmap, finalMeme, memeTemplateBitmap;
     float topFloat, bottomFloat;
+    boolean noTop, noBottom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +31,9 @@ public class Creator extends Selector {
         memeTemplate = (ImageView) findViewById(R.id.memeTemplate);
         topText = (TextView) findViewById(R.id.topText);
         topText.setDrawingCacheEnabled(true);
+        topText.setTextSize(0);
         bottomText = (TextView) findViewById(R.id.bottomText);
+        bottomText.setTextSize(0);
         bottomText.setDrawingCacheEnabled(true);
         topInput = (EditText) findViewById(R.id.topInput);
         bottomInput = (EditText) findViewById(R.id.bottomInput);
@@ -124,22 +127,24 @@ public class Creator extends Selector {
     }
 
     public void saveMeme(View view) {
-        if (topText.getText().toString().equals("") || bottomText.getText().toString().equals("")) {
-            Toast.makeText(getApplicationContext(), "You should write some text there though...", Toast.LENGTH_SHORT).show();
-        }
-        else {
+        if (topText.getText().toString().equals("") || topSize.getText().toString().equals("") || topSize.getText().toString().equals("0"))
+            noTop = true;
+        if (bottomText.getText().toString().equals("") || bottomSize.getText().toString().equals("") || bottomSize.getText().toString().equals("0"))
+            noBottom = true;
+        if (!noTop)
             topBitmap = Bitmap.createBitmap(topText.getDrawingCache());
+        if (!noBottom)
             bottomBitmap = Bitmap.createBitmap(bottomText.getDrawingCache());
-            memeTemplate.setDrawingCacheEnabled(true);
-            memeTemplateBitmap = Bitmap.createBitmap(memeTemplate.getDrawingCache());
-            finalMeme = combineImages(memeTemplateBitmap, topBitmap, bottomBitmap);
-            MediaStore.Images.Media.insertImage(getContentResolver(), finalMeme, "meme", "dank");
-            Toast.makeText(getApplicationContext(), "Meme saved", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(getApplicationContext(), StartPage.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-            finish();
-        }
+        memeTemplate.setDrawingCacheEnabled(true);
+        memeTemplateBitmap = Bitmap.createBitmap(memeTemplate.getDrawingCache());
+        finalMeme = combineImages(memeTemplateBitmap, topBitmap, bottomBitmap);
+        MediaStore.Images.Media.insertImage(getContentResolver(), finalMeme, "meme", "dank");
+        Toast.makeText(getApplicationContext(), "Meme saved", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(getApplicationContext(), StartPage.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        noTop = noBottom = false;
+        startActivity(intent);
+        finish();
     }
 
     public Bitmap combineImages(Bitmap background, Bitmap foreground1, Bitmap foreground2) {
@@ -154,8 +159,10 @@ public class Creator extends Selector {
         Canvas comboImage = new Canvas(cs);
         background = Bitmap.createScaledBitmap(background, width, height, true);
         comboImage.drawBitmap(background, 0, 0, null);
-        comboImage.drawBitmap(foreground1, (width - topBitmap.getWidth()) / 2, 0 - topText.getTextSize() / 10, null);
-        comboImage.drawBitmap(foreground2, (width - bottomBitmap.getWidth()) / 2, height - 60 - bottomText.getTextSize(), null);
+        if (!noTop)
+            comboImage.drawBitmap(foreground1, (width - topBitmap.getWidth()) / 2, 0 - topText.getTextSize() / 10, null);
+        if (!noBottom)
+            comboImage.drawBitmap(foreground2, (width - bottomBitmap.getWidth()) / 2, height - 60 - bottomText.getTextSize(), null);
         return cs;
     }
 }
