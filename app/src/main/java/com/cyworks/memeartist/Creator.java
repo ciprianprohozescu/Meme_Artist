@@ -40,7 +40,6 @@ public class Creator extends Selector {
         topSize = (EditText) findViewById(R.id.topSize);
         bottomSize = (EditText) findViewById(R.id.bottomSize);
         memeTemplate.setImageBitmap(memeBitmap);
-
         topInput.addTextChangedListener(new TextWatcher() {
 
             @Override

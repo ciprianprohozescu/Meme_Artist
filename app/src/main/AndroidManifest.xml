@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".TemplateListActivity"
+            android:name=".TemplateListActivity"/>
             android:label="@string/title_template_list"
             android:theme="@style/MyAppTheme"
             android:screenOrientation="portrait"/>
