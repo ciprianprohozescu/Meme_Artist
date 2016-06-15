@@ -18,7 +18,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="122dp"
         android:onClick="gotoSelector"
-        android:background="@drawable/round_button" />
+        android:background="@drawable/round_button"
+        android:textColor="#ffffff" />
 
     <TextView
         android:layout_width="wrap_content"

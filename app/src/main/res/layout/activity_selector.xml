@@ -35,7 +35,8 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="51dp"
             android:onClick="gotoCreator"
-            android:background="@drawable/round_button" />
+            android:background="@drawable/round_button"
+            android:textColor="#ffffff" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -57,7 +58,8 @@
             android:onClick="openDrawer"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-            android:background="@drawable/round_button" />
+            android:background="@drawable/round_button"
+            android:textColor="#ffffff" />
 
     </RelativeLayout>
 
