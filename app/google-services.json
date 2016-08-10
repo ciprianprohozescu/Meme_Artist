@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "86212117451",
+    "firebase_url": "https://meme-artist.firebaseio.com",
+    "project_id": "meme-artist",
+    "storage_bucket": "meme-artist.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:86212117451:android:190d40bcc187e0a6",
+        "android_client_info": {
+          "package_name": "com.cyworks.memeartist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "86212117451-2eslvv67ubl7e2lr81610jv0okj36til.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCp3NvkVVbwZzFjtqDgDFZbsQ1xuG9iv5I"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

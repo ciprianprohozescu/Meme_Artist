@@ -3,6 +3,7 @@
     package="com.cyworks.memeartist">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-sdk android:minSdkVersion="23" />
 
     <application
